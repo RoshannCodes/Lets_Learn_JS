@@ -46,3 +46,9 @@ console.log(newArr)             //adds perfectly, elements come spreading... pre
 const subArrays = [1,2,[3,4,[5]]]
 const newSubArrays = subArrays.flat(Infinity)   //makes every sub arrays into a single new array
 console.log(newSubArrays)
+
+let a = 'Roshan'
+let b = 'Koirala'
+let c = 'Codes'
+
+console.log(Array.of(a,b,c))
