@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BMI CALCULATOR</title>
+</head>
+<body>
+    <p>BMI CALCULATOR</p>
+    <p><label for="height">Height in cm: </label> <input id="height" type="text"></p>
+    <p><label for="weight">Weight in kg</label> <input id="weight" type="text"></p>
+
+    <button onclick="calculate()">Calculate</button>
+    <p class="result"></p>
+
+    <p>BMI Calculation guide</p>
+    <p>Under weight = Less than 18.6</p>
+    <p>Normal Range: 18.6 to 27.9</p>
+    <p>Over Weight: Greater than 27.9</p>
+
+    <script>
+        
+        
+        function calculate(){
+            const weight = parseInt(document.querySelector('#weight').value)
+            const result = (document.querySelector('.result'))
+            const height = parseInt(document.querySelector('#height').value)
+            let guide = ''
+            if(height<0 || height === '' || weight<0 || weight ===''){
+                result.innerHTML = 'Enter a valid height and weight!'
+            }
+            else{
+                const bmi =  (weight/(height*height)*10000).toFixed(2)
+                if(bmi < 18.9){
+                     guide = 'Under Weight'
+                }
+                else if(bmi>18.9 && bmi <27.9 ){
+                     guide = 'Normal Range'
+                }
+                else {
+                     guide = 'Over Weight'
+                }
+                result.innerHTML = `Your BMI is ${(weight/(height*height)*10000).toFixed(2)}. ${guide}`
+            }
+
+        }
+    </script>
+</body>
+</html>
