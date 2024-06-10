@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Colour Changer</title>
+
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+        }
+        div{
+            border: 2px solid black;
+            height: 70px;
+            width: 70px;
+            margin: 10px;
+        }
+        #grey{
+            background-color: grey;
+        }
+        #green{
+            background-color: green;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #white{
+            background-color: white;
+        }
+       
+    </style>
+</head>
+<body>
+        
+        <div id="grey"></div>
+        <div id="white"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+    
+
+    <script>
+        let divs = document.querySelectorAll('div');
+        let body = document.querySelector('body');
+
+        divs.forEach(function (div){
+            div.addEventListener("click", function (a){
+                body.style.backgroundColor = a.target.id
+        })
+        })
+    </script>
+</body>
+</html>
