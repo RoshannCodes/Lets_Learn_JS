@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LETS ENJOY PLAYING</title>
+    <link rel="stylesheet" href="CSS_Perfect_Rock_Paper.css">
+
+    
+</head>
+<body>
+    
+    <p class="heading">Scissor Paper Rock!</p>
+
+    <button onclick="playerMove('rock')" class="button-edit">
+        <img class="image-emoji" src="images/rock-emoji.png" alt="">
+    </button>
+    <button onclick="playerMove('paper')" class="button-edit">
+        <img class="image-emoji" src="images/paper-emoji.png" alt="">
+    </button>
+    <button onclick="playerMove('scissor')" class="button-edit">
+        <img class="image-emoji" src="images/scissor-emoji.png" alt="">
+    </button>
+
+    <p id="js-result"></p>
+    <p id="js-moves"></p>
+
+   <p id="js-score"></p>
+
+   <button onclick="resetScore()" class="reset-score">Reset Score</button>
+
+    <script src="JS_Perfect_Rock_Paper.js"></script>
+</body>
+</html>

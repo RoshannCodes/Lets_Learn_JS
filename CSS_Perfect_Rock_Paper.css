@@ -1,0 +1,48 @@
+        body{
+            background-color: rgb(25,25,25);
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .heading{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .image-emoji{
+            height: 50px;
+        }
+
+        .button-edit{
+            background-color: rgb(25, 25, 25);
+            border: 3px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        #js-result{
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        .js-result-emoji{
+            height: 50px;
+            width: 50px;
+            border: none;
+        }
+
+        .reset-score{
+            padding: 10px;
+            margin-left: 20px;
+        }
+
+        #js-score{
+            margin-left: 20px;
+        }
+
+        #js-moves{
+            margin-left: 20px;
+        }
+    
