@@ -4,18 +4,18 @@
     <title>Lets Enjoy Alone</title>
 </head>
 <style>
-    *{
+    * {
         margin: 0px;
         padding: 0px;
     }
-    body{
+    body {
         background-color: aqua;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
-    .container{
+    .container {
         background-color: bisque;
         height: 70vh;
         width: 70vh;
@@ -25,7 +25,7 @@
         flex-wrap: wrap;
         gap: 10px;
     }
-    .singleBox{
+    .singleBox {
         height: 20vh;
         width: 20vh;
         border-radius: 10px;
@@ -33,31 +33,39 @@
         box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
         font-size: 25px;
         background-color: #fff;
-        color: black ;
+        color: black;
     }
-    p{
+    p {
         margin: 10px;
     }
-    .reset-button{
+    .reset-button, .new-game {
         margin-top: 10px;
         padding: 10px;
         border: none;
         font-size: 16px;
     }
-    .display-winner{
-        height: 20px;
-        font-size: 25px;        
+    .display-winner {
+        height: 100vh;
+        font-size: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .hide{
+    .hide {
         display: none;
     }
 </style>
 
 <body>
-    <p class="display-winner hide">Winner</p>
+    <div class="display-winner hide">
+        <p></p>
+        <button class="new-game">New Game</button>
+    </div>
+        
     <p><h3>Tic Tac Toe Game</h3></p>
     <div class="container">
-        
         <button class="singleBox"></button>
         <button class="singleBox"></button>
         <button class="singleBox"></button>
@@ -73,68 +81,70 @@
     <script>
         let playX = true;
         const winningSeq = [
-            [0,1,2],
-            [3,4,5],
-            [6,7,8],
-            [0,3,6],
-            [1,4,7],
-            [2,5,8],
-            [0,4,8],
-            [2,4,6]
-        ]
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
         
-        let boxes = document.querySelectorAll('.singleBox')
-        boxes.forEach((box) =>{
-            box.addEventListener('click', ()=>{
-                if(playX === true){
+        let boxes = document.querySelectorAll('.singleBox');
+        boxes.forEach((box) => {
+            box.addEventListener('click', () => {
+                if (playX === true) {
                     box.innerHTML = 'X';
-                    playX=false
+                    playX = false;
+                } else {
+                    box.innerHTML = 'O';
+                    playX = true;
                 }
-                else{
-                    box.innerHTML = 'O'
-                    playX= true
-                }
-                box.disabled = true
-                checkWinner()
-            })
-            
-        })
+                box.disabled = true;
+                checkWinner();
+            });
+        });
 
-    const checkWinner=()=>{
-            for(let pattern of winningSeq){
-                let position1 = boxes[pattern[0]].innerText
-                let position2 = boxes[pattern[1]].innerText
-                let position3 = boxes[pattern[2]].innerText
+        const checkWinner = () => {
+            for (let pattern of winningSeq) {
+                let position1 = boxes[pattern[0]].innerText;
+                let position2 = boxes[pattern[1]].innerText;
+                let position3 = boxes[pattern[2]].innerText;
             
-            if(position1 != "" && position2!="" && position3 !=""){
-                if(position1 === position2 && position2 === position3){
-                    document.querySelector('.display-winner').classList.remove('hide')
-                    document.querySelector('.display-winner').innerHTML = `Winner is ${position1}`
-                    checkTie()
-                    disableBoxes()
+                if (position1 != "" && position2 != "" && position3 != "") {
+                    if (position1 === position2 && position2 === position3) {
+                        document.querySelector('.display-winner').classList.remove('hide');
+                        document.querySelector('.display-winner p').innerText = `Winner is ${position1}`;
+                        disableBoxes();
+                    }
                 }
             }
-        }
-        }
+        };
 
-        document.querySelector('.reset-button').addEventListener('click', ()=>{
-            enableBoxes()
-            document.querySelector('.display-winner').classList.add('hide')
-        })
-        const disableBoxes = () =>{
-            boxes.forEach((box) =>{
-                box.disabled = true
-            })
-        }
+        document.querySelector('.reset-button').addEventListener('click', () => {
+            enableBoxes();
+            document.querySelector('.display-winner').classList.add('hide');
+        });
+
+        document.querySelector('.new-game').addEventListener('click', () => {
+            enableBoxes();
+            document.querySelector('.display-winner').classList.add('hide');
+        });
+
+        const disableBoxes = () => {
+            boxes.forEach((box) => {
+                box.disabled = true;
+            });
+        };
+
         const enableBoxes = () => {
-            boxes.forEach((box) =>{
-                box.disabled=false
-                box.innerHTML = ''
-                playX = true
-            })
-        }
-
-        
+            boxes.forEach((box) => {
+                box.disabled = false;
+                box.innerHTML = '';
+                playX = true;
+            });
+        };
     </script>
 </body>
 </html>
