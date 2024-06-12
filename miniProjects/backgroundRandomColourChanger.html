@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+        }
+        button{
+            border-radius: 10px;
+            border:  none;
+            background-color: rgb(2, 31, 31);
+            padding: 10px;
+            color: white;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+        <p>Random Background Colour Generator</p>
+        <div class="button-container">
+            <button class="start">Start</button>
+            <button class="stop">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        let randomColour;
+        
+        function randomColourGenerator(){
+            let colour = '#'
+            let hex = '0123456789ABCDEF'
+            for(let i=0; i<6;i++){
+                colour += hex[Math.floor(Math.random() *16)];
+            }
+            return colour
+        }
+        
+        
+            document.querySelector('.start').addEventListener('click', ()=>{
+            if(!randomColour){
+             randomColour =  setInterval(()=>{
+            document.body.style.backgroundColor = randomColourGenerator()
+            },500);
+         }
+        })
+
+        document.querySelector('.stop').addEventListener('click', ()=>{
+            clearInterval(randomColour);
+            randomColour=null;
+        })
+            
+        
+    </script>
+</body>
+</html>
