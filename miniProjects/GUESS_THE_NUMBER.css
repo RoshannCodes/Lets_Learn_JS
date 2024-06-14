@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(102, 57, 180);
+}
+.heading{
+    margin: 20px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.container{
+    background-color: rgb(22, 43, 36);
+    color: white;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lowerPart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.input{
+    border: 2px solid lightgray;
+    padding: 5px;
+}
+
+.newGame, .resetGame,.guess{
+    margin: 10px;
+    padding: 5px;
+}
+
+.result{
+    margin: 10px;
+    height: 20px;
+}
+
+.hide{
+    display: none;
+}
+.guess, .array{
+    margin-top: 20px;
+}
