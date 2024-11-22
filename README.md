@@ -1,2 +1,1 @@
-# Lets Learn HTML CSS AND JS
-This is my first github practice
+# This implies starting of my journey to Web Development!
